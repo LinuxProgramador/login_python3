@@ -64,7 +64,7 @@ NOTA: el hash md5 y sha1 son vulnerables a ataques
        archive_write.close()
 
        print("""
-NOTA: La contrasena se almaceno como un archivo oculto llamado .password_user.txt en el directorio login
+NOTA: La contrasena se almaceno como un archivo oculto llamado .password_user.txt en el directorio login_python3
               """)
        sleep(5)
        system("clear")
