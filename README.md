@@ -1,9 +1,9 @@
 
 cd ~
 
-git clone 
+git clone  https://github.com/LinuxProgramador/login_python3.git
 
-cd login 
+cd login_python3
 
 chmod +x dependencias.sh
 
