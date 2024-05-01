@@ -1,7 +1,7 @@
 
 cd ~
 
-git clone 
+git clone https://github.com/LinuxProgramador/login_python3.git
 
 cd login_python3
 
