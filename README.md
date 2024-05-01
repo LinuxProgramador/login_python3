@@ -1,17 +1,14 @@
 
 cd ~
 
-git clone  https://github.com/LinuxProgramador/login_python3.git
+git clone 
 
 cd login_python3
 
-chmod +x dependencias.sh
-
-chmod +x login.sh hash_pass.py
+chmod u+x dependencias.sh login.py hash_pass.py
 
 bash dependencias.sh
 
-python3 login.py
 
 
 
@@ -21,7 +18,7 @@ copia el ejecutable login.py a binarios
 
 por ejemolo:
 
-cp login.sh $PATH
+cp login.py $PATH
 
 despues 
 

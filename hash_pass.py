@@ -4,58 +4,68 @@
 from hashlib import md5,sha1,sha224,sha256,sha384,sha512
 from os import system
 from time import sleep
-
+import sys
 
 
 
 def input_password_user():
-  '''
-   funcion la cual codificara una contraseña
-  '''
+ '''
+   funcion la cual pedira y codificara una contraseña brindada por el usuario en algun hash elegido
+ '''
+ try:
 
-
-  a=sha512("md5".encode('utf8')).hexdigest()
-  b=sha512("sha1".encode('utf8')).hexdigest()
-  c=sha512("sha224".encode('utf8')).hexdigest()
-  d=sha512("sha256".encode('utf8')).hexdigest()
-  e=sha512("sha384".encode('utf8')).hexdigest()
-  f=sha512("sha512".encode('utf8')).hexdigest()
-
-
-
-  password_user=input("ingresa la contrasena de tu login: ")
-  sleep(1)
-  system("clear")
-
-  print("""
-Elige un hash para codificar la contraseña
-Lista de hashes:
-        md5
-        sha1
-        sha224
-        sha256
-        sha384
-        sha512
-
-NOTA: el hash md5 y sha1 son vulnerables a ataques
-""")
-
-  hash=input("escriba el hash a elegir: ").lower()
-  hash.strip()
-  sleep(1)
-  hash=sha512(hash.encode('utf8')).hexdigest()
-  system("clear")
-
-  rute_complete_2="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
-  archive_write=open(rute_complete_2,'w')
-  archive_write.write(hash)
-  archive_write.close()
+   a=sha512("md5".encode('utf8')).hexdigest()
+   b=sha512("sha1".encode('utf8')).hexdigest()
+   c=sha512("sha224".encode('utf8')).hexdigest()
+   d=sha512("sha256".encode('utf8')).hexdigest()
+   e=sha512("sha384".encode('utf8')).hexdigest()
+   f=sha512("sha512".encode('utf8')).hexdigest()
 
 
 
-  def almacenar(password_user_hash):
+   password_user=input("ingresa la contrasena de tu login: ")
+   sleep(1)
+   system("clear")
+
+   print("""
+ -------------------------------------------------------
+|      Elige un hash para codificar la contraseña       |
+ -------------------------------------------------------
+       |  Lista de hashes: |
+       |    md5            |
+       |    sha1           |
+       |    sha224         |
+       |    sha256         |
+       |    sha384         |
+       |    sha512         |
+        -------------------
+NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
+""",end="")
+
+   while True:
+    hash=input("Escriba el hash a elegir: ").lower().strip()
+    hash=sha512(hash.encode('utf8')).hexdigest()
+    if bool(hash) != False and hash in [a,b,c,d,e,f]:
+      print("¡Hash valido!")
+      sleep(1)
+      system("clear")
+      break
+
+    else:
+       system("clear")
+       print("¡Ingresaste un hash invalido!")
+       sleep(2)
+
+   rute_complete_2="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
+   archive_write=open(rute_complete_2,'w')
+   archive_write.write(hash)
+   archive_write.close()
+
+
+
+   def save_password(password_user_hash):
        '''
-           funcion la cual almacenara una contrasena codificada
+           funcion la cual guardara la contrasena codificada del usuario
        '''
 
        rute_complete="/data/data/com.termux/files/home/login_python3/.password_user.txt"
@@ -64,9 +74,9 @@ NOTA: el hash md5 y sha1 son vulnerables a ataques
        archive_write.close()
 
        print("""
-NOTA: La contrasena se almaceno como un archivo oculto llamado .password_user.txt en el directorio login_python3
+(NOTA:¡La contrasena se almaceno en el directorio login como .password_user.txt!)
               """)
-       sleep(5)
+       sleep(4)
        system("clear")
 
        return
@@ -74,38 +84,42 @@ NOTA: La contrasena se almaceno como un archivo oculto llamado .password_user.tx
 
 
 
-  if hash == a:
+   if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
-       almacenar(password_user_hash)
+       save_password(password_user_hash)
 
 
-  elif hash == b:
+   elif hash == b:
 
       password_user_hash=sha1(password_user.encode('utf8')).hexdigest()
-      almacenar(password_user_hash)
+      save_password(password_user_hash)
 
-  elif hash == c:
+   elif hash == c:
       password_user_hash=sha224(password_user.encode('utf8')).hexdigest()
-      almacenar(password_user_hash)
+      save_password(password_user_hash)
 
 
-  elif hash == d:
+   elif hash == d:
       password_user_hash=sha256(password_user.encode('utf8')).hexdigest()
-      almacenar(password_user_hash)
+      save_password(password_user_hash)
 
-  elif hash == e:
+   elif hash == e:
       password_user_hash=sha384(password_user.encode('utf8')).hexdigest()
-      almacenar(password_user_hash)
+      save_password(password_user_hash)
 
 
-  elif hash == f:
+   elif hash == f:
       password_user_hash=sha512(password_user.encode('utf8')).hexdigest()
-      almacenar(password_user_hash)
+      save_password(password_user_hash)
 
 
-  return
+   return
+
+ except KeyboardInterrupt:
+     system("clear")
+     print("saliendo del script \"hash_pass.py\"")
+     sys.exit(2)
 
 
-
-
-input_password_user()
+if __name__ == "__main__":
+     input_password_user()
