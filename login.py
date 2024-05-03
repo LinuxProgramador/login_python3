@@ -81,7 +81,7 @@ def validator_files():
    '''
 
    #me valida la existencia de los archivos nesesarios para el correcto funcionamiento del programa login termux y tambien elimina archivo basura que se encuentren en el directorio login_python3
-   system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .figlet.sh | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt | grep -v uninstall.sh | grep -v .hash_uninstall.py | grep -v LICENSE  | grep -v motd | grep -v motd1 >  ~/login_python3/.borrador.txt ")
+   system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .git | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .figlet.sh | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt | grep -v uninstall.sh | grep -v .hash_uninstall.py | grep -v LICENSE*$  | grep -v motd | grep -v motd1 >  ~/login_python3/.borrador.txt ")
    system("cat ~/login_python3/.borrador.txt | xargs rm -f")
 
    system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt > ~/login_python3/.lista_local.txt")
