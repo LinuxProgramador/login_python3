@@ -1,6 +1,6 @@
-#!/bin/python3
+#!/usr/bin/python3
 
-#login
+#login termux
 
 
 from hashlib import md5,sha1,sha224,sha384,sha256,sha512
@@ -16,6 +16,8 @@ def exit_console():
    '''
      funcion la cual me permite cerrar la seccion en termux
    '''
+   #comando en shell bash el cual me permite saber cual es el PID de la consola activa y cerrarla
+
    system("""
               shell_PDI=$(ps | grep bash | cut -d'p' -f1 )
               kill -9 $shell_PDI
@@ -29,14 +31,16 @@ def banner():
  '''
  try:
 
-    ruta_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
-    archivo_banner_read2=open(ruta_banner_read,'r',encoding="utf8")
-    banner_file=archivo_banner_read2.read().strip()
-    archivo_banner_read2.close()
+    rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
+    banner_file_config=open(rute_banner_read,'r',encoding="utf8")
+    banner_file_read=banner_file_config.read().strip()
+    banner_file_config.close()
 
 
-    if banner_file in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
+    #me permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
+    if banner_file_read in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
 
+       validator_correct_execute_banner="perfect"
        system("bash /data/data/com.termux/files/home/login_python3/.figlet.sh")
 
        print("""
@@ -75,14 +79,17 @@ def validator_files():
    '''
      funcion la cual me permite validar la existencia de archivos localmente para la correcta funcionalidad del login
    '''
-   system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .figlet.sh | grep -v .borrador.txt > ~/login_python3/.borrador.txt ")
+
+   #me valida la existencia de los archivos nesesarios para el correcto funcionamiento del programa login termux y tambien elimina archivo basura que se encuentren en el directorio login_python3
+   system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .figlet.sh | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt | grep -v uninstall.sh | grep -v .hash_uninstall.py | grep -v LICENSE  | grep -v motd | grep -v motd1 >  ~/login_python3/.borrador.txt ")
    system("cat ~/login_python3/.borrador.txt | xargs rm -f")
 
-   system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt | grep -v .borrador.txt > ~/login_python3/.lista_local.txt")
-   ruta_completa_lista="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
-   archivo_lista=open(ruta_completa_lista,'r',encoding="utf8")
-   lista_local=archivo_lista.read().strip()
-   archivo_lista.close()
+   system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt > ~/login_python3/.lista_local.txt")
+   rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
+
+   file_list=open(rute_complete_list,'r',encoding="utf8")
+   list_local=file_list.read().strip()
+   file_list.close()
    variable_local="""
 .banner.txt
 .hash_selection.txt
@@ -90,9 +97,7 @@ def validator_files():
 .usuario.txt
 """
 
-
-
-   if lista_local == variable_local.strip() :
+   if list_local == variable_local.strip() :
        pass
 
    else:
@@ -132,9 +137,9 @@ def password_local():
          funcion la cual me permite leer la contraseña localmente almacenada en el directorio login
       '''
 
-      ruta_completa="/data/data/com.termux/files/home/login_python3/.password_user.txt"
-      leer_archivo=open(ruta_completa,'r',encoding="utf8")
-      password_local=leer_archivo.read()
+      rute_complete_password_local="/data/data/com.termux/files/home/login_python3/.password_user.txt"
+      file_read_password_local=open(rute_complete_password_local,'r',encoding="utf8")
+      password_local=file_read_password_local.read()
       return password_local
 
 
@@ -151,31 +156,31 @@ def main():
 
       global password
 
-      if hash_4 in [a,b,c,d,e,f]:
+      if hash_select_validator in [a,b,c,d,e,f] and bool(validator_correct_execute_banner) != False:
 
         password=getpass("ingrese su contraseña: ")
-        if hash_4 == a:
+        if hash_select_validator == a:
            password=md5(password.encode('utf8')).hexdigest()
 
 
-        elif hash_4 == b:
+        elif hash_select_validator == b:
           password=sha1(password.encode('utf8')).hexdigest()
 
 
-        elif hash_4 == c:
+        elif hash_select_validator == c:
            password=sha224(password.encode('utf8')).hexdigest()
 
 
 
-        elif hash_4 == d:
+        elif hash_select_validator == d:
            password=sha256(password.encode('utf8')).hexdigest()
 
 
-        elif hash_4 == e:
+        elif hash_select_validator == e:
            password=sha384(password.encode('utf8')).hexdigest()
 
 
-        elif hash_4 == f:
+        elif hash_select_validator == f:
            password=sha512(password.encode('utf8')).hexdigest()
 
 
@@ -189,15 +194,17 @@ def main():
 
 
 
-    contador=11
-    for int in range(13):
+    counter=11
+    for interation in range(13):
 
-        contador -= 1
+        counter -= 1
         system("clear")
         banner()
-        rute_complete_3="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
-        archivo_leer3=open(rute_complete_3,'r',encoding="utf8")
-        hash_4=archivo_leer3.read()
+
+        rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
+        file_read_hash_select=open(rute_complete_hash_select,'r',encoding="utf8")
+        hash_select_validator=file_read_hash_select.read()
+
         validator_hash()
         if password == password_local():
              print("acceso concedido!")
@@ -208,9 +215,9 @@ def main():
         else:
              system("clear")
              print("¡contraseña invalida!")
-             print(f"¡intentos disponibles {contador}!")
+             print(f"¡intentos disponibles {counter}!")
              sleep(3)
-             if int >= 10:
+             if interation >= 10:
                 exit_console()
 
 
@@ -219,7 +226,7 @@ def main():
 
 if __name__ == "__main__":
 
-
+  validator_correct_execute_banner=" "
   a=sha512("md5".encode('utf8')).hexdigest()
   b=sha512("sha1".encode('utf8')).hexdigest()
   c=sha512("sha224".encode('utf8')).hexdigest()
@@ -251,11 +258,11 @@ if __name__ == "__main__":
 
 
 
-__name__="Login"
+__name__="Login Termux"
 __version__="1.0"
-__maintainer__="Anonimous"
-__author__="Anonimous"
+__maintainer__="white hack"
+__author__="white hack"
 __status__="finish"
-__email__="Anonimous01011001@gmail.com"
+__email__="NULL"
 __license__="GPL"
-__copyright__="Anonimous Inc."
+__copyright__="NULL"

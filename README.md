@@ -1,15 +1,17 @@
 
 cd ~
 
-git clone https://github.com/LinuxProgramador/login_python3.git
+git clone https://github.com/LinuxProgramador/login_python3.git 
 
 cd login_python3
 
-chmod u+x dependencias.sh login.py hash_pass.py
+chmod u+x dependencias.sh 
 
 bash dependencias.sh
 
+y para eliminar el login
 
+bash uninstall.sh
 
 
 Nota: si quieres que se carge el login siempre que abra termux 
