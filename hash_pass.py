@@ -22,7 +22,9 @@ def input_password_user():
    f=sha512("sha512".encode('utf8')).hexdigest()
 
 
-
+   print("""CONSEJO:usar una contraseña mayor de 8 caracteres y que tenga números,símbolos,Mayusculas y minusculas""")
+   sleep(3)
+   system("clear")
    password_user=input("ingresa la contrasena de tu login: ")
    sleep(1)
    system("clear")
