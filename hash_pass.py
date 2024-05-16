@@ -23,7 +23,7 @@ def input_password_user():
 
 
    print("""CONSEJO:usar una contraseña mayor de 8 caracteres y que tenga números,símbolos,Mayusculas y minusculas""")
-   sleep(3)
+   sleep(4)
    system("clear")
    password_user=input("ingresa la contrasena de tu login: ")
    sleep(1)
