@@ -70,7 +70,8 @@ function main {
    echo -e "\033[1;35m -------------------------------------------------------"
    echo -e "\033[1;35m| Hola por favor digite su contrasena y hash a utilizar |"
    echo -e "\033[1;35m ------------------------------------------------------- "
-
+   sleep 3
+   echo $(clear)
    python3 ~/login_python3/hash_pass.py
    input_dates_user
    python3 login.py
