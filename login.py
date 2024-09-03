@@ -150,7 +150,7 @@ def main():
         counter -= 1
         system("clear")
         banner()
-        rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.xt"
+        rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
         file_read_hash_select=open(rute_complete_hash_select,'r',encoding="utf8")
         hash_select_validator=file_read_hash_select.read()
         validator_hash()
