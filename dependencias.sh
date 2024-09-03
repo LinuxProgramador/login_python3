@@ -3,18 +3,12 @@
 
 
 function input_dates_user {
-
    trap ctrl_c 2
-
    function ctrl_c() {
-
        echo $(clear)
        echo "Bye"
        exit
-
    }
-
-
    echo -e "\033[1;35m"
    read -p "Ingresa tu nombre para agregarlo a la configuracion del banner: " user_name
    echo -e "\033[1;35m -------------------------------------------"
@@ -43,30 +37,19 @@ function input_dates_user {
 
 }
 
-
-
 function main {
-
    motd="motd"
    verification_motd=$(cd $PREFIX/etc; ls | grep motd*$ | cut -d'-' -f1)
-
    echo $(clear)
-
    apt update && apt upgrade -y
-
    apt install figlet python3 nano neofetch -y
-
    if [ "$motd" = "$verification_motd" ]; then
-
       rm -f $PREFIX/etc/motd
       cp -f ~/login_python3/motd1  $PREFIX/etc/
       echo $(clear)
    else
-
     echo $(clear)
-
    fi
-
    echo -e "\033[1;35m -------------------------------------------------------"
    echo -e "\033[1;35m| Hola por favor digite su contrasena y hash a utilizar |"
    echo -e "\033[1;35m ------------------------------------------------------- "
@@ -75,7 +58,6 @@ function main {
    python3 ~/login_python3/hash_pass.py
    input_dates_user
    python3 login.py
-
 }
 main
 
