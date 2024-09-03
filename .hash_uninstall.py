@@ -13,13 +13,10 @@ def input_password_hash_delete():
        password_hash_delete=getpass("ingrese su contraseña para eliminar el login: ")
        password_hash_delete=sha512(password_hash_delete.encode('utf8')).hexdigest()
        print(password_hash_delete)
-
      except KeyboardInterrupt:
          print("bye")
          sys.exit(2)
-
      return
-
 
 if __name__ == "__main__":
     input_password_hash_delete()
