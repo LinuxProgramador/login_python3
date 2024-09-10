@@ -176,9 +176,9 @@ if __name__ == "__main__":
   signal_counter=0
   MAX_SIGNAL_ATTEMPTS=1
   while True:
-    signal(signal.SIGINT, signal_esc)
-    signal(signal.SIGTSTP, signal_esc)
-    signal(signal.SIGQUIT, signal_esc)
+    signal(SIGINT, signal_esc)
+    signal(SIGTSTP, signal_esc)
+    signal(SIGQUIT, signal_esc)
     try:
           validator_files()
           main()
