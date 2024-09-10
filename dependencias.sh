@@ -5,12 +5,7 @@ motd="motd"
 verification_motd=$(cd $PREFIX/etc; ls | grep motd*$ | cut -d'-' -f1)
    
 function input_dates_user {
-   trap ctrl_c 2
-   function ctrl_c() {
-       echo $(clear)
-       echo "Bye"
-       exit
-   }
+   trap "echo $(clear) && echo 'Bye' && exit" 2
    echo -e "\033[1;35m"
    read -p "Ingresa tu nombre para agregarlo a la configuracion del banner: " user_name
    echo -e "\033[1;35m -------------------------------------------"
