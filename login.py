@@ -5,7 +5,7 @@
 
 from hashlib import md5,sha1,sha224,sha384,sha256,sha512
 from os import system
-import signal
+from signal import signal, SIGINT, SIGTSTP, SIGQUIT
 from time import sleep
 from getpass import getpass
 
@@ -176,9 +176,9 @@ if __name__ == "__main__":
   signal_counter=0
   MAX_SIGNAL_ATTEMPTS=1
   while True:
-    signal.signal(signal.SIGINT, signal_esc)
-    signal.signal(signal.SIGTSTP, signal_esc)
-    signal.signal(signal.SIGQUIT, signal_esc)
+    signal(signal.SIGINT, signal_esc)
+    signal(signal.SIGTSTP, signal_esc)
+    signal(signal.SIGQUIT, signal_esc)
     try:
           validator_files()
           main()
