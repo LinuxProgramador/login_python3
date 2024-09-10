@@ -24,7 +24,7 @@ def exit_console():
 
 def banner():
  '''
-     funcion la cual me permite agregar un banner en bash con figlet y neofetch y tambien verificara si el ingresado por el usuario es valido
+     funcion la cual me permite agregar un banner en bash con figlet y neofetch y tambien verificar si es valido
  '''
  try:
     rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
