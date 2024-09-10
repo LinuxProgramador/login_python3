@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-
+motd="motd"
+verification_motd=$(cd $PREFIX/etc; ls | grep motd*$ | cut -d'-' -f1)
+   
 function input_dates_user {
    trap ctrl_c 2
    function ctrl_c() {
@@ -38,8 +40,6 @@ function input_dates_user {
 }
 
 function main {
-   motd="motd"
-   verification_motd=$(cd $PREFIX/etc; ls | grep motd*$ | cut -d'-' -f1)
    echo $(clear)
    apt update && apt upgrade -y
    apt install figlet python3 nano neofetch -y
