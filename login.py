@@ -81,7 +81,7 @@ def validator_files():
        sleep(3)
        system("clear")
        print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
-       sleep(4)
+       sleep(3)
        exit_console()
    return
 
