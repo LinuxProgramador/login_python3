@@ -9,7 +9,7 @@ from time import sleep
 
 def input_password_user():
  '''
-   funcion la cual pedira y codificara una contraseña brindada por el usuario en algun hash elegido
+   funcion la cual pedira y codificara una contraseña brindada por el usuario.
  '''
  try:
    a=sha512("md5".encode('utf8')).hexdigest()
