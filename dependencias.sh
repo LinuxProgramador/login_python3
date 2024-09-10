@@ -31,7 +31,6 @@ function input_dates_user {
    echo $user_name | base64  > ~/login_python3/.usuario.txt
    chmod 700 ~/login_python3/.figlet.sh hash_pass.py login.py dependencias.sh
    chmod 600 ~/login_python3/.banner.txt ~/login_python3/.hash_selection.txt ~/login_python3/.password_user.txt ~/login_python3/.usuario.txt ~/login_python3/uninstall.sh ~/login_python3/.hash_uninstall.py ~/login_python3/.password_hash_uninstall.txt ~/login_python3/motd LICENSE README.md motd1
-
 }
 
 function main {
