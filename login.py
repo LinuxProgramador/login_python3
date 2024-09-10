@@ -45,20 +45,15 @@ def banner():
         system("clear")
         print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
         sleep(3)
-        system("""
-              shell_PDI=$(ps | grep bash | cut -d'p' -f1 )
-              kill -9 $shell_PDI
-           """)
+        exit_console()
 
  except FileNotFoundError:
         print("¡Valores no existentes!")
         sleep(2)
         print("NOTA:¡Ejecute primero el archivo dependencias.sh")
-        system("""
-              shell_PDI=$(ps | grep bash | cut -d'p' -f1 )
-              kill -9 $shell_PDI
-           """)
- return
+        sleep(3)
+        exit_console()
+ 
 
 
 def validator_files():
