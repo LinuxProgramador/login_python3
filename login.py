@@ -31,7 +31,7 @@ def banner():
     with open(rute_banner_read,'r',encoding="utf8") banner_file_config:
        banner_file_read=banner_file_config.read().strip()
     
-    #me permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
+    #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
        validator_correct_execute_banner="perfect"
        system("bash /data/data/com.termux/files/home/login_python3/.figlet.sh")
