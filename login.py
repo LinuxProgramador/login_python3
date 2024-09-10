@@ -8,7 +8,7 @@ from os import system
 import signal
 from time import sleep
 from getpass import getpass
-import sys
+
 
 
 
@@ -28,9 +28,9 @@ def banner():
  '''
  try:
     rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
-    banner_file_config=open(rute_banner_read,'r',encoding="utf8")
-    banner_file_read=banner_file_config.read().strip()
-    banner_file_config.close()
+    with open(rute_banner_read,'r',encoding="utf8") banner_file_config:
+       banner_file_read=banner_file_config.read().strip()
+    
     #me permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
        validator_correct_execute_banner="perfect"
@@ -155,7 +155,7 @@ def main():
         validator_hash()
         if password == password_local():
              print("acceso concedido!")
-             sys.exit(1)
+             exit(1)
         else:
              system("clear")
              print("¡contraseña invalida!")
