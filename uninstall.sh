@@ -1,15 +1,8 @@
 #!/bin/bash
 
+login="$PATH/login.py"
 
 function uninstall_login_termux {
- trap ctrl_c 2
- function ctrl_c() {
-
-       echo $(clear)
-       echo "Bye"
-       exit
- }
- login="$PATH/login.py"
  if [ -f "$login" ] ; then
      rm -f $PATH/login.py
      echo "el archivo login.py a sido eliminado con exito de la ruta: $PATH"
@@ -38,13 +31,7 @@ function uninstall_login_termux {
 }
 
 function main {
- trap ctrl_c 2
- function ctrl_c() {
-
-       echo $(clear)
-       echo "Bye"
-       exit
- }
+ trap "echo $(clear) && echo 'Bye' && exit" 2
  read -p "desea eliminar login termux (si/no): " delete_login_termux
  if [ "$delete_login_termux" = 'si' ] ; then
        secure_token=$(python3 ~/login_python3/.hash_uninstall.py)
