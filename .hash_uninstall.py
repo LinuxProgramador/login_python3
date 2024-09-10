@@ -2,7 +2,7 @@
 
 from hashlib import sha512
 from getpass import getpass
-import sys
+
 
 
 def input_password_hash_delete():
@@ -15,7 +15,7 @@ def input_password_hash_delete():
        print(password_hash_delete)
      except KeyboardInterrupt:
          print("bye")
-         sys.exit(2)
+         exit(2)
      return
 
 if __name__ == "__main__":
