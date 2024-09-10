@@ -70,9 +70,8 @@ def validator_files():
    system("cat ~/login_python3/.borrador.txt | xargs rm -f")
    system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt > ~/login_python3/.lista_local.txt")
    rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
-   file_list=open(rute_complete_list,'r',encoding="utf8")
-   list_local=file_list.read().strip()
-   file_list.close()
+   with open(rute_complete_list,'r',encoding="utf8") file_list:
+      list_local=file_list.read().strip()
    variable_local="""
 .banner.txt
 .hash_selection.txt
@@ -112,8 +111,8 @@ def password_local():
          funcion la cual me permite leer la contraseña localmente almacenada en el directorio login
       '''
       rute_complete_password_local="/data/data/com.termux/files/home/login_python3/.password_user.txt"
-      file_read_password_local=open(rute_complete_password_local,'r',encoding="utf8")
-      password_local=file_read_password_local.read()
+      with open(rute_complete_password_local,'r',encoding="utf8") file_read_password_local:
+           password_local=file_read_password_local.read()
       return password_local
 
 def main():
@@ -151,8 +150,8 @@ def main():
         system("clear")
         banner()
         rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
-        file_read_hash_select=open(rute_complete_hash_select,'r',encoding="utf8")
-        hash_select_validator=file_read_hash_select.read()
+        with open(rute_complete_hash_select,'r',encoding="utf8") file_read_hash_select:
+          hash_select_validator=file_read_hash_select.read()
         validator_hash()
         if password == password_local():
              print("acceso concedido!")
@@ -196,6 +195,4 @@ __version__="1.0"
 __maintainer__="white hack"
 __author__="white hack"
 __status__="finish"
-__email__="NULL"
 __license__="GPL"
-__copyright__="NULL"
