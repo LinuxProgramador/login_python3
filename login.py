@@ -160,7 +160,7 @@ def main():
         else:
              system("clear")
              print("¡contraseña invalida!")
-             print(f"¡intentos disponibles {counter}!")
+             print(f"intentos disponibles {counter}")
              sleep(3)
              if interation >= 10:
                 exit_console()
