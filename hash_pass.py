@@ -59,7 +59,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
    
    def save_password(password_user_hash,password_hash_uninstall):
        '''
-           funcion la cual guardara la contrasena codificada del usuario
+           funcion la cual guardara la contraseña codificada del usuario
        '''
        rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
        with open(rute_complete_save_password,'w') as archive_write:
