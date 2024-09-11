@@ -39,7 +39,7 @@ function main {
        if [ "$secure_token" = "$secure_token_input"  ] ; then
                uninstall_login_termux
        else
-             echo "password invalida"
+             echo "contraseña invalida"
              exit
        fi
  else
