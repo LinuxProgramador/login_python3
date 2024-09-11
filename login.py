@@ -58,7 +58,7 @@ def banner():
 
 def validator_files():
    '''
-     funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login
+     funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login_python3
    '''
    #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login y tambien elimina archivo basura que se encuentren en el directorio login_python3
    system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .git | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .figlet.sh | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt | grep -v uninstall.sh | grep -v .hash_uninstall.py | grep -v LICENSE*$  | grep -v motd | grep -v motd1 >  ~/login_python3/.borrador.txt ")
