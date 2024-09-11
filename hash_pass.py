@@ -54,7 +54,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        sleep(2)
 
    rute_complete_save_hash="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
-   with open(rute_complete_save_hash,'w') archive_write:
+   with open(rute_complete_save_hash,'w') as archive_write:
       archive_write.write(hash)
    
    def save_password(password_user_hash,password_hash_uninstall):
@@ -62,11 +62,11 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
            funcion la cual guardara la contrasena codificada del usuario
        '''
        rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
-       with open(rute_complete_save_password,'w') archive_write:
+       with open(rute_complete_save_password,'w') as archive_write:
           archive_write.write(password_user_hash)
        password_hash_uninstall_hash=sha512(password_hash_uninstall.encode('utf8')).hexdigest()
        rute_complete_hash_password_uninstall="/data/data/com.termux/files/home/login_python3/.password_hash_uninstall.txt"
-       with open(rute_complete_hash_password_uninstall,'w') archive_write:
+       with open(rute_complete_hash_password_uninstall,'w') as archive_write:
           archive_write.write(password_hash_uninstall_hash)
        print("""
 (NOTA:¡Las dos contrasenas se almacenaron en el directorio login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
