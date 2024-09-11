@@ -9,7 +9,7 @@ from time import sleep
 
 def input_password_user():
  '''
-   funcion la cual pedira y codificara una contraseña brindada por el usuario.
+   funcion que pedira y codificara una contraseña brindada por el usuario.
  '''
  try:
    a=sha512("md5".encode('utf8')).hexdigest()
@@ -19,7 +19,7 @@ def input_password_user():
    e=sha512("sha384".encode('utf8')).hexdigest()
    f=sha512("sha512".encode('utf8')).hexdigest()
    print("CONSEJO: (¡usar contraseñas > 8 caracteres y que sea Aleatoria)")
-   password_user=input("ingrese la contrasena de tu login: ")
+   password_user=input("ingrese la contraseña de tu login: ")
    sleep(1)
    system("clear")
    password_hash_uninstall=input("ingrese la contraseña de eliminacion de el login: ")
@@ -69,7 +69,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        with open(rute_complete_hash_password_uninstall,'w') as archive_write:
           archive_write.write(password_hash_uninstall_hash)
        print("""
-(NOTA:¡Las dos contrasenas se almacenaron en el directorio login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
+(NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
               """)
        sleep(5)
        system("clear")
