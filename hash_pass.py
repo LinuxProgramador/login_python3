@@ -71,7 +71,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        print("""
 (NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
               """)
-       sleep(5)
+       sleep(7)
        system("clear")
        return
 
