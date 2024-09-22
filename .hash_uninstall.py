@@ -2,7 +2,7 @@
 
 from hashlib import sha512
 from getpass import getpass
-
+from sys import exit
 
 
 def input_password_hash_delete():
