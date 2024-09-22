@@ -4,7 +4,7 @@
 from hashlib import md5,sha1,sha224,sha256,sha384,sha512
 from os import system
 from time import sleep
-
+from sys import exit
 
 
 def input_password_user():
