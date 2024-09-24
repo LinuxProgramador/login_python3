@@ -8,7 +8,7 @@ from os import system
 from signal import signal, SIGINT, SIGTSTP, SIGQUIT
 from time import sleep
 from getpass import getpass
-
+from sys import exit
 
 
 
