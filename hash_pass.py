@@ -33,7 +33,7 @@ def save_password(password_user_hash,password_hash_uninstall):
 
 def auxiliary_function():
    '''
-     funcion auxiliar que se utiliza para dividir las tareas de la función input_password_user
+     funcion auxiliar que se utiliza para dividir las tareas de la función main
    '''
    print("CONSEJO: (¡usar contraseñas > 8 caracteres y que sea Aleatoria)")
    password_user=input("ingrese la contraseña de tu login: ")
@@ -73,7 +73,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
    save_selection_hash(hash)
 
 
-def input_password_user():
+def main():
  '''
   funcion que pedira y codificara una contraseña brindada por el usuario.
  '''
@@ -111,4 +111,4 @@ def input_password_user():
 
 
 if __name__ == "__main__":
-     input_password_user()
+     main()
