@@ -16,7 +16,7 @@ def input_password_hash_delete():
      except KeyboardInterrupt:
          print("bye")
          exit(2)
-     return
+     
 
 if __name__ == "__main__":
     input_password_hash_delete()
