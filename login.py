@@ -164,7 +164,7 @@ def main():
              print("¡contraseña invalida!")
              print(f"intentos disponibles {counter}")
              sleep(3)
-             if interation >= 10:
+             if interation >= 9:
                 exit_console()
 
 
