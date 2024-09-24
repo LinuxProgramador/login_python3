@@ -87,7 +87,7 @@ def main():
   funcion que pedira y codificara una contraseña brindada por el usuario.
  '''
  try:
-   auxiliary_main()   
+   password_user,password_hash_uninstall,hash = auxiliary_main()   
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
        save_password(password_user_hash,password_hash_uninstall)
