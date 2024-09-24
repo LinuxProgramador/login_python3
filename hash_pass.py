@@ -7,6 +7,25 @@ from time import sleep
 from sys import exit
 
 
+
+def save_password(password_user_hash,password_hash_uninstall):
+       '''
+           funcion la cual guardara la contraseña codificada del usuario
+       '''
+       rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
+       with open(rute_complete_save_password,'w') as archive_write:
+          archive_write.write(password_user_hash)
+       password_hash_uninstall_hash=sha512(password_hash_uninstall.encode('utf8')).hexdigest()
+       rute_complete_hash_password_uninstall="/data/data/com.termux/files/home/login_python3/.password_hash_uninstall.txt"
+       with open(rute_complete_hash_password_uninstall,'w') as archive_write:
+          archive_write.write(password_hash_uninstall_hash)
+       print("""
+(NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
+              """)
+       sleep(7)
+       system("clear")
+
+
 def input_password_user():
  '''
    funcion que pedira y codificara una contraseña brindada por el usuario.
@@ -57,24 +76,6 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
    with open(rute_complete_save_hash,'w') as archive_write:
       archive_write.write(hash)
    
-   def save_password(password_user_hash,password_hash_uninstall):
-       '''
-           funcion la cual guardara la contraseña codificada del usuario
-       '''
-       rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
-       with open(rute_complete_save_password,'w') as archive_write:
-          archive_write.write(password_user_hash)
-       password_hash_uninstall_hash=sha512(password_hash_uninstall.encode('utf8')).hexdigest()
-       rute_complete_hash_password_uninstall="/data/data/com.termux/files/home/login_python3/.password_hash_uninstall.txt"
-       with open(rute_complete_hash_password_uninstall,'w') as archive_write:
-          archive_write.write(password_hash_uninstall_hash)
-       print("""
-(NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
-              """)
-       sleep(7)
-       system("clear")
-       return
-
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
        save_password(password_user_hash,password_hash_uninstall)
@@ -93,7 +94,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
    elif hash == f:
       password_user_hash=sha512(password_user.encode('utf8')).hexdigest()
       save_password(password_user_hash,password_hash_uninstall)
-   return
+  
  except KeyboardInterrupt:
      system("clear")
      print("saliendo del script \"hash_pass.py\"")
