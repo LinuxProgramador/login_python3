@@ -83,8 +83,7 @@ def validator_files():
        print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
        sleep(3)
        exit_console()
-   return
-
+  
 
 def signal_esc(sig,frame):
    '''
@@ -142,9 +141,7 @@ def validator_hash(hash_select_validator):
         print("¡ADVERTENCIA:Hash invalido!")
         sleep(3)
         exit_console()
-      return
-
-
+      
 
 def main():
     '''
