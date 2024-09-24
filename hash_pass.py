@@ -6,11 +6,17 @@ from os import system
 from time import sleep
 from sys import exit
 
-
+def save_selection_hash(hash):
+   '''
+    funcion que permite almacenar el hash seleccionado por el usuario en forma de un hash
+   '''
+   rute_complete_save_hash="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
+   with open(rute_complete_save_hash,'w') as archive_write:
+       archive_write.write(hash)
 
 def save_password(password_user_hash,password_hash_uninstall):
        '''
-           funcion la cual guardara la contraseña codificada del usuario
+        funcion la cual guardara la contraseña codificada del usuario
        '''
        rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
        with open(rute_complete_save_password,'w') as archive_write:
@@ -28,7 +34,7 @@ def save_password(password_user_hash,password_hash_uninstall):
 
 def input_password_user():
  '''
-   funcion que pedira y codificara una contraseña brindada por el usuario.
+  funcion que pedira y codificara una contraseña brindada por el usuario.
  '''
  try:
    a=sha512("md5".encode('utf8')).hexdigest()
@@ -72,9 +78,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        print("¡Ingresaste un hash invalido!")
        sleep(2)
 
-   rute_complete_save_hash="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
-   with open(rute_complete_save_hash,'w') as archive_write:
-      archive_write.write(hash)
+   save_selection_hash(hash)
    
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
