@@ -188,7 +188,6 @@ if __name__ == "__main__":
 
 __name__="Login Termux"
 __version__="1.0"
-__maintainer__="white hack"
-__author__="white hack"
-__status__="finish"
+__author__="whitehack"
+__status__="Finish"
 __license__="GPL"
