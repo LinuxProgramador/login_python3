@@ -147,8 +147,8 @@ def main():
     '''
        funcion donde agrego un contador para controlar los intentos de inicio de seccion y con base a eso aplicar proteccion contra fuerza bruta y tambien se compara la contrasena para verificar si es correcta
     '''
-    counter=11
-    for interation in range(13):
+    counter=10
+    for interation in range(10):
         counter -= 1
         system("clear")
         banner()
