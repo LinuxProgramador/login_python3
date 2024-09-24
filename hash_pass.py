@@ -80,7 +80,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        sleep(2)
 
    save_selection_hash(hash)
-
+   return password_user,password_hash_uninstall,hash
 
 def main():
  '''
