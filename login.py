@@ -110,15 +110,19 @@ def password_local():
            password_local=file_read_password_local.read()
       return password_local
 
-def main():
-    '''
-       funcion donde agrego un contador para controlar los intentos de inicio de seccion y con base a eso aplicar proteccion contra fuerza bruta y tambien se compara la contrasena para verificar si es correcta
-    '''
-    def validator_hash():
+
+def validator_hash(hash_select_validator):
       '''
         funcion donde comparo el hash seleccionado con una lista de hash para verificar si es valido y por medio de eso codificar la contrasena entrante del usuario
       '''
       global password
+      a=sha512("md5".encode('utf8')).hexdigest()
+      b=sha512("sha1".encode('utf8')).hexdigest()
+      c=sha512("sha224".encode('utf8')).hexdigest()
+      d=sha512("sha256".encode('utf8')).hexdigest()
+      e=sha512("sha384".encode('utf8')).hexdigest()
+      f=sha512("sha512".encode('utf8')).hexdigest()
+
       if hash_select_validator in [a,b,c,d,e,f] and bool(validator_correct_execute_banner) != False:
         password=getpass("ingrese su contraseña: ")
         if hash_select_validator == a:
@@ -139,6 +143,13 @@ def main():
         sleep(3)
         exit_console()
       return
+
+
+
+def main():
+    '''
+       funcion donde agrego un contador para controlar los intentos de inicio de seccion y con base a eso aplicar proteccion contra fuerza bruta y tambien se compara la contrasena para verificar si es correcta
+    '''
     counter=11
     for interation in range(13):
         counter -= 1
@@ -147,7 +158,7 @@ def main():
         rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
         with open(rute_complete_hash_select,'r',encoding="utf8") as file_read_hash_select:
           hash_select_validator=file_read_hash_select.read()
-        validator_hash()
+        validator_hash(hash_select_validator)
         if password == password_local():
              print("acceso concedido!")
              exit(1)
@@ -162,12 +173,6 @@ def main():
 
 if __name__ == "__main__":
   validator_correct_execute_banner=" "
-  a=sha512("md5".encode('utf8')).hexdigest()
-  b=sha512("sha1".encode('utf8')).hexdigest()
-  c=sha512("sha224".encode('utf8')).hexdigest()
-  d=sha512("sha256".encode('utf8')).hexdigest()
-  e=sha512("sha384".encode('utf8')).hexdigest()
-  f=sha512("sha512".encode('utf8')).hexdigest()
   signal_counter=0
   MAX_SIGNAL_ATTEMPTS=1
   while True:
@@ -179,11 +184,7 @@ if __name__ == "__main__":
           main()
           break
     except EOFError:
-          system("""
-                  shell_PDI=$(ps | grep bash | cut -d'p' -f1 )
-                  kill -9 $shell_PDI
-                 """)
-
+          exit_console()
 
 __name__="Login Termux"
 __version__="1.0"
