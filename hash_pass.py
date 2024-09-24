@@ -31,18 +31,10 @@ def save_password(password_user_hash,password_hash_uninstall):
        sleep(7)
        system("clear")
 
-
-def input_password_user():
- '''
-  funcion que pedira y codificara una contraseña brindada por el usuario.
- '''
- try:
-   a=sha512("md5".encode('utf8')).hexdigest()
-   b=sha512("sha1".encode('utf8')).hexdigest()
-   c=sha512("sha224".encode('utf8')).hexdigest()
-   d=sha512("sha256".encode('utf8')).hexdigest()
-   e=sha512("sha384".encode('utf8')).hexdigest()
-   f=sha512("sha512".encode('utf8')).hexdigest()
+def auxiliary_function():
+   '''
+     funcion auxiliar que se utiliza para dividir las tareas de la función input_password_user
+   '''
    print("CONSEJO: (¡usar contraseñas > 8 caracteres y que sea Aleatoria)")
    password_user=input("ingrese la contraseña de tu login: ")
    sleep(1)
@@ -79,7 +71,20 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
        sleep(2)
 
    save_selection_hash(hash)
-   
+
+
+def input_password_user():
+ '''
+  funcion que pedira y codificara una contraseña brindada por el usuario.
+ '''
+ try:
+   a=sha512("md5".encode('utf8')).hexdigest()
+   b=sha512("sha1".encode('utf8')).hexdigest()
+   c=sha512("sha224".encode('utf8')).hexdigest()
+   d=sha512("sha256".encode('utf8')).hexdigest()
+   e=sha512("sha384".encode('utf8')).hexdigest()
+   f=sha512("sha512".encode('utf8')).hexdigest()
+   auxiliary_function()   
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
        save_password(password_user_hash,password_hash_uninstall)
