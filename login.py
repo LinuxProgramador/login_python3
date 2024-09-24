@@ -77,7 +77,7 @@ def validator_files():
        pass
    else:
        system("clear")
-       print("ADVERTENCIA:¡archivos no encontrados en el directorio login!")
+       print("ADVERTENCIA:¡archivos no encontrados en el directorio login_python3!")
        sleep(3)
        system("clear")
        print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
