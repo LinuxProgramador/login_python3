@@ -6,6 +6,15 @@ from os import system
 from time import sleep
 from sys import exit
 
+
+a=sha512("md5".encode('utf8')).hexdigest()
+b=sha512("sha1".encode('utf8')).hexdigest()
+c=sha512("sha224".encode('utf8')).hexdigest()
+d=sha512("sha256".encode('utf8')).hexdigest()
+e=sha512("sha384".encode('utf8')).hexdigest()
+f=sha512("sha512".encode('utf8')).hexdigest()
+
+
 def save_selection_hash(hash):
    '''
     funcion que permite almacenar el hash seleccionado por el usuario en forma de un hash
@@ -78,12 +87,6 @@ def main():
   funcion que pedira y codificara una contraseña brindada por el usuario.
  '''
  try:
-   a=sha512("md5".encode('utf8')).hexdigest()
-   b=sha512("sha1".encode('utf8')).hexdigest()
-   c=sha512("sha224".encode('utf8')).hexdigest()
-   d=sha512("sha256".encode('utf8')).hexdigest()
-   e=sha512("sha384".encode('utf8')).hexdigest()
-   f=sha512("sha512".encode('utf8')).hexdigest()
    auxiliary_main()   
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
