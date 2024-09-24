@@ -62,7 +62,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
    while True:
     hash=input("Escriba el hash a elegir: ").lower().strip()
     hash=sha512(hash.encode('utf8')).hexdigest()
-    if bool(hash) != False and hash in [a,b,c,d,e,f]:
+    if hash and hash in [a,b,c,d,e,f]:
       print("¡Hash valido!")
       sleep(1)
       system("clear")
