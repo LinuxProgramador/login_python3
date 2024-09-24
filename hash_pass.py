@@ -31,7 +31,7 @@ def save_password(password_user_hash,password_hash_uninstall):
        sleep(7)
        system("clear")
 
-def auxiliary_function():
+def auxiliary_main():
    '''
      funcion auxiliar que se utiliza para dividir las tareas de la función main
    '''
@@ -84,7 +84,7 @@ def main():
    d=sha512("sha256".encode('utf8')).hexdigest()
    e=sha512("sha384".encode('utf8')).hexdigest()
    f=sha512("sha512".encode('utf8')).hexdigest()
-   auxiliary_function()   
+   auxiliary_main()   
    if hash == a:
        password_user_hash=md5(password_user.encode('utf8')).hexdigest()
        save_password(password_user_hash,password_hash_uninstall)
