@@ -23,17 +23,17 @@ def exit_console():
            """)
 
 def banner():
- '''
+    '''
      funcion la cual me permite agregar un banner en bash con figlet y neofetch y tambien verificar si es valido
- '''
- try:
+    '''
     rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
     with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
        banner_file_read=banner_file_config.read().strip()
     
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
-       validator_correct_execute_banner="perfect"
+       global validator_correct_execute_banner
+       validator_correct_execute_banner=True
        system("bash /data/data/com.termux/files/home/login_python3/.figlet.sh")
        print("""
 
@@ -46,15 +46,6 @@ def banner():
         print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
         sleep(3)
         exit_console()
-
- except FileNotFoundError:
-        print("¡Valores no existentes!")
-        sleep(2)
-        print("NOTA:¡Ejecute primero el archivo dependencias.sh")
-        sleep(3)
-        exit_console()
- 
-
 
 def validator_files():
    '''
@@ -123,7 +114,7 @@ def validator_hash(hash_select_validator):
       e=sha512("sha384".encode('utf8')).hexdigest()
       f=sha512("sha512".encode('utf8')).hexdigest()
 
-      if hash_select_validator in [a,b,c,d,e,f] and bool(validator_correct_execute_banner) != False:
+      if hash_select_validator in [a,b,c,d,e,f] and validator_correct_execute_banner:
         password=getpass("ingrese su contraseña: ")
         if hash_select_validator == a:
            password=md5(password.encode('utf8')).hexdigest()
@@ -170,7 +161,7 @@ def main():
 
 
 if __name__ == "__main__":
-  validator_correct_execute_banner=" "
+  validator_correct_execute_banner=False
   signal_counter=0
   MAX_SIGNAL_ATTEMPTS=1
   while True:
