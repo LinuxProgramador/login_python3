@@ -61,12 +61,12 @@ def validator_files():
    with open(rute_complete_list,'r',encoding="utf8") as file_list:
       list_local=file_list.read().strip()
    variable_local="""
-.figlet.sh
 .banner.txt
 .hash_selection.txt
 .password_hash_uninstall.txt
 .password_user.txt
 .usuario.txt
+.figlet.sh
 """
    if list_local == variable_local.strip() :
        pass
