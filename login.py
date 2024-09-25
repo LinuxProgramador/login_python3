@@ -118,7 +118,7 @@ def validator_hash(hash_select_validator):
       f=sha512("sha512".encode('utf8')).hexdigest()
 
       if hash_select_validator in [a,b,c,d,e,f] and validator_correct_execute_banner:
-        password=getpass("ingrese su contraseña: ")
+        password=getpass("Ingrese su contraseña: ")
         if hash_select_validator == a:
            password=md5(password.encode('utf8')).hexdigest()
         elif hash_select_validator == b:
@@ -157,7 +157,7 @@ def main():
         else:
              system("clear")
              print("¡CONTRASEÑA INVALIDA!")
-             print(f"intentos disponibles => {counter}")
+             print(f"Intentos disponibles => {counter}")
              sleep(3)
              if interation == 9:
                 exit_console()
