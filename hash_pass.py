@@ -38,7 +38,7 @@ def save_password(password_user_hash,password_hash_uninstall):
           archive_write.write(password_hash_uninstall_hash)
           
        print("""
-(NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
+NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
               """)
        sleep(7)
        system("clear")
@@ -74,7 +74,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
     hash=input("Escriba el hash a elegir: ").lower().strip()
     hash=sha512(hash.encode('utf8')).hexdigest()
     if hash and hash in [a,b,c,d,e,f]:
-      print("¡Hash valido!")
+      print("Hash valido!")
       sleep(1)
       system("clear")
       break
