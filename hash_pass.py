@@ -84,7 +84,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
 
 def main():
  '''
-  funcion que pedira y codificara una contraseña brindada por el usuario.
+  funcion que codificara una contraseña brindada por el usuario.
  '''
  try:
    password_user,password_hash_uninstall,hash = auxiliary_main()   
