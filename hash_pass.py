@@ -22,23 +22,27 @@ def save_selection_hash(hash):
    rute_complete_save_hash="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
    with open(rute_complete_save_hash,'w') as archive_write:
        archive_write.write(hash)
+      
 
 def save_password(password_user_hash,password_hash_uninstall):
        '''
         funcion la cual guardara la contraseña codificada del usuario
        '''
        rute_complete_save_password="/data/data/com.termux/files/home/login_python3/.password_user.txt"
+       rute_complete_hash_password_uninstall="/data/data/com.termux/files/home/login_python3/.password_hash_uninstall.txt"
+       password_hash_uninstall_hash=sha512(password_hash_uninstall.encode('utf8')).hexdigest()
+   
        with open(rute_complete_save_password,'w') as archive_write:
           archive_write.write(password_user_hash)
-       password_hash_uninstall_hash=sha512(password_hash_uninstall.encode('utf8')).hexdigest()
-       rute_complete_hash_password_uninstall="/data/data/com.termux/files/home/login_python3/.password_hash_uninstall.txt"
        with open(rute_complete_hash_password_uninstall,'w') as archive_write:
           archive_write.write(password_hash_uninstall_hash)
+          
        print("""
 (NOTA:¡Las dos contraseñas se almacenaron en login_python3 como (.password_user.txt/.password_hash_uninstall.txt)!
               """)
        sleep(7)
        system("clear")
+   
 
 def auxiliary_main():
    '''
@@ -81,6 +85,7 @@ NOTA:El hash md5 y sha-1 son vulnerables a (\"colisiones\",\"fuerza bruta\")
 
    save_selection_hash(hash)
    return password_user,password_hash_uninstall,hash
+   
 
 def main():
  '''
