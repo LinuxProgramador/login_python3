@@ -49,10 +49,10 @@ def auxiliary_main():
      funcion auxiliar que se utiliza para dividir las tareas de la función main
    '''
    print("CONSEJO: (¡usar contraseñas > 8 caracteres y que sea Aleatoria)")
-   password_user=input("ingrese la contraseña de tu login: ")
+   password_user=input("Ingrese la contraseña de tu login: ")
    sleep(1)
    system("clear")
-   password_hash_uninstall=input("ingrese la contraseña de eliminacion de el login: ")
+   password_hash_uninstall=input("Ingrese la contraseña de eliminacion de el login: ")
    sleep(1)
    system("clear")
    print("""
@@ -114,7 +114,7 @@ def main():
   
  except KeyboardInterrupt:
      system("clear")
-     print("saliendo del script \"hash_pass.py\"")
+     print("Saliendo del script \"hash_pass.py\"")
      exit(2)
 
 
