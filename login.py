@@ -81,7 +81,7 @@ def signal_esc(sig,frame):
    '''
        funcion la cual me permite atrapar teclas de salida con el modulo signal
    '''
-   print("\nacesso no consedido! ")
+   print("\nAcesso no consedido! ")
    sleep(1)
    global signal_counter
    signal_counter += 1
@@ -149,12 +149,12 @@ def main():
           hash_select_validator=file_read_hash_select.read()
         validator_hash(hash_select_validator)
         if password == password_local():
-             print("acceso concedido!")
+             print("Acceso concedido!")
              exit(1)
         else:
              system("clear")
-             print("¡contraseña invalida!")
-             print(f"intentos disponibles {counter}")
+             print("¡CONTRASEÑA INVALIDA!")
+             print(f"intentos disponibles => {counter}")
              sleep(3)
              if interation == 9:
                 exit_console()
