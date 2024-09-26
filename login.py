@@ -11,16 +11,17 @@ from getpass import getpass
 from sys import exit
 
 
-a=sha512("md5".encode('utf8')).hexdigest()
-b=sha512("sha1".encode('utf8')).hexdigest()
-c=sha512("sha224".encode('utf8')).hexdigest()
-d=sha512("sha256".encode('utf8')).hexdigest()
-e=sha512("sha384".encode('utf8')).hexdigest()
-f=sha512("sha512".encode('utf8')).hexdigest()
-validator_correct_execute_banner=False
-signal_counter=0
-MAX_SIGNAL_ATTEMPTS=1
-variable_local=[".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt",".figlet.sh"]
+a = sha512("md5".encode('utf8')).hexdigest()
+b = sha512("sha1".encode('utf8')).hexdigest()
+c = sha512("sha224".encode('utf8')).hexdigest()
+d = sha512("sha256".encode('utf8')).hexdigest()
+e = sha512("sha384".encode('utf8')).hexdigest()
+f = sha512("sha512".encode('utf8')).hexdigest()
+validator_correct_execute_banner = False
+signal_counter = 0
+MAX_SIGNAL_ATTEMPTS = 1
+variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt",".figlet.sh"]
+figlet = ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]
 
 
 def exit_console():
@@ -42,7 +43,7 @@ def banner():
        banner_file_read=banner_file_config.read().strip()
     
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
-    if banner_file_read in ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]:
+    if banner_file_read in figlet:
        global validator_correct_execute_banner
        validator_correct_execute_banner=True
        system("bash /data/data/com.termux/files/home/login_python3/.figlet.sh")
