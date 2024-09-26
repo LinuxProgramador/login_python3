@@ -11,6 +11,16 @@ from getpass import getpass
 from sys import exit
 
 
+a=sha512("md5".encode('utf8')).hexdigest()
+b=sha512("sha1".encode('utf8')).hexdigest()
+c=sha512("sha224".encode('utf8')).hexdigest()
+d=sha512("sha256".encode('utf8')).hexdigest()
+e=sha512("sha384".encode('utf8')).hexdigest()
+f=sha512("sha512".encode('utf8')).hexdigest()
+validator_correct_execute_banner=False
+signal_counter=0
+MAX_SIGNAL_ATTEMPTS=1
+
 
 def exit_console():
    '''
@@ -110,13 +120,6 @@ def validator_hash(hash_select_validator):
         funcion donde comparo el hash seleccionado con una lista de hash para verificar si es valido y por medio de eso codificar la contrasena entrante del usuario
       '''
       global password
-      a=sha512("md5".encode('utf8')).hexdigest()
-      b=sha512("sha1".encode('utf8')).hexdigest()
-      c=sha512("sha224".encode('utf8')).hexdigest()
-      d=sha512("sha256".encode('utf8')).hexdigest()
-      e=sha512("sha384".encode('utf8')).hexdigest()
-      f=sha512("sha512".encode('utf8')).hexdigest()
-
       if hash_select_validator in [a,b,c,d,e,f] and validator_correct_execute_banner:
         password=getpass("Ingrese su contraseña: ")
         if hash_select_validator == a:
@@ -164,9 +167,6 @@ def main():
 
 
 if __name__ == "__main__":
-  validator_correct_execute_banner=False
-  signal_counter=0
-  MAX_SIGNAL_ATTEMPTS=1
   while True:
     signal(SIGINT, signal_esc)
     signal(SIGTSTP, signal_esc)
