@@ -20,6 +20,7 @@ f=sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner=False
 signal_counter=0
 MAX_SIGNAL_ATTEMPTS=1
+variable_local=[".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt",".figlet.sh"]
 
 
 def exit_console():
@@ -61,26 +62,13 @@ def validator_files():
    '''
      funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login_python3
    '''
-   #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login y tambien elimina archivo basura que se encuentren en el directorio login_python3
-   system("ls -a ~/login_python3/ | grep -v .banner.txt | grep -v .git | grep -v .hash_selection.txt | grep -v .usuario.txt | grep -v .password_user.txt | grep -v .lista_local.txt | grep -v dependencias.sh | grep -v README.md | grep -v hash_pass.py | grep -v login.py | grep -v .borrador.txt | grep -v .password_hash_uninstall.txt | grep -v uninstall.sh | grep -v .figlet.sh | grep -v .hash_uninstall.py | grep -v LICENSE*$  | grep -v motd | grep -v motd1 >  ~/login_python3/.borrador.txt ")
-   system("cat ~/login_python3/.borrador.txt | xargs rm -f")
-   system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt | grep -v .borrador.txt > ~/login_python3/.lista_local.txt")
+   #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login 
+   system("ls -a ~/login_python3/ | grep .* | grep -v .lista_local.txt > ~/login_python3/.lista_local.txt")
    rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
-   with open(rute_complete_list,'a') as file_list_write:
-      file_list_write.write(".figlet.sh")
    with open(rute_complete_list,'r',encoding="utf8") as file_list:
-      list_local=file_list.read().strip()
-   variable_local="""
-.banner.txt
-.hash_selection.txt
-.password_hash_uninstall.txt
-.password_user.txt
-.usuario.txt
-.figlet.sh
-"""
-   if list_local == variable_local.strip() :
-       pass
-   else:
+      list_local=file_list.readlines()
+   
+   if not any(x in variable_local for x in list_local) :
        system("clear")
        print("ADVERTENCIA:¡archivos no encontrados en el directorio login_python3!")
        sleep(3)
