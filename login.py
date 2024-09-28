@@ -20,7 +20,6 @@ f = sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner = False
 signal_counter = 0
 MAX_SIGNAL_ATTEMPTS = 1
-variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt"]
 figlet = ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]
 
 
@@ -58,26 +57,6 @@ def banner():
         print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
         sleep(3)
         exit_console()
-
-def validator_files():
-   '''
-     funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login_python3
-   '''
-   #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login 
-   system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt > ~/login_python3/.lista_local.txt")
-   rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
-   with open(rute_complete_list,'r',encoding="utf8") as file_list:
-      list_local=file_list.readlines()
-   
-   for x in list_local:
-     if x.strip() in variable_local:
-       system("clear")
-       print("ADVERTENCIA:¡archivos no encontrados en el directorio login_python3!")
-       sleep(3)
-       system("clear")
-       print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
-       sleep(3)
-       exit_console()
   
 
 def signal_esc(sig,frame):
@@ -135,8 +114,12 @@ def main():
     '''
        funcion donde agrego un contador para controlar los intentos de inicio de seccion y con base a eso aplicar proteccion contra fuerza bruta y tambien se compara la contrasena para verificar si es correcta
     '''
-    counter=10
-    for interation in range(10):
+    try:
+      signal(SIGINT, signal_esc)
+      signal(SIGTSTP, signal_esc)
+      signal(SIGQUIT, signal_esc)
+      counter=10
+      for interation in range(10):
         counter -= 1
         system("clear")
         banner()
@@ -154,19 +137,15 @@ def main():
              sleep(3)
              if interation == 9:
                 exit_console()
-
+    except FileNotFoundError as e:
+       print(f"file does not exist => {e}")
+       
 
 if __name__ == "__main__":
-  while True:
-    signal(SIGINT, signal_esc)
-    signal(SIGTSTP, signal_esc)
-    signal(SIGQUIT, signal_esc)
     try:
-          validator_files()
-          main()
-          break
+        main()
     except EOFError:
-          exit_console()
+        exit_console()
 
 __name__="Login Termux"
 __version__="1.0"
