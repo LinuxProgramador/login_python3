@@ -42,7 +42,7 @@ def banner():
      with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
         banner_file_read=banner_file_config.read().strip()
     else:
-       print("No encontrado el scriptbash \".figlet.sh\"")
+       print("No encontrado el scriptbash \".figlet.sh\"!")
        exit(1)
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in figlet:
