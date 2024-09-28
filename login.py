@@ -20,7 +20,7 @@ f = sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner = False
 signal_counter = 0
 MAX_SIGNAL_ATTEMPTS = 1
-variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt"]
+variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt",".figlet.sh"]
 figlet = ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]
 
 
