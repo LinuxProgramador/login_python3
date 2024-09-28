@@ -64,7 +64,7 @@ def validator_files():
      funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login_python3
    '''
    #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login 
-   system("ls -a ~/login_python3/ | grep . )
+   system("ls -a ~/login_python3/ | grep . | grep -v .hash_uninstall.py |  grep -v .git | grep -v LICENSE | grep -v README.md | grep -v dependencias.sh | grep -v hash_pass.py | grep -v login.py | grep -v motd |  grep -v  motd1 | grep -v uninstall.sh | grep -v .lista_local.txt > ~/login_python3/.lista_local.txt")
    rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
    with open(rute_complete_list,'r',encoding="utf8") as file_list:
       list_local=file_list.readlines()
