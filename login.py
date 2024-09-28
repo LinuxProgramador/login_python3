@@ -69,7 +69,8 @@ def validator_files():
    with open(rute_complete_list,'r',encoding="utf8") as file_list:
       list_local=file_list.readlines()
    
-   if not any(x.strip() in variable_local for x in list_local) :
+   for x in list_local:
+     if x.strip() in variable_local:
        system("clear")
        print("ADVERTENCIA:¡archivos no encontrados en el directorio login_python3!")
        sleep(3)
