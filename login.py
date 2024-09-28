@@ -20,7 +20,7 @@ f = sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner = False
 signal_counter = 0
 MAX_SIGNAL_ATTEMPTS = 1
-variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt",".figlet.sh"]
+variable_local = [".banner.txt",".hash_selection.txt",".password_hash_uninstall.txt",".password_user.txt",".usuario.txt"]
 figlet = ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]
 
 
@@ -64,7 +64,7 @@ def validator_files():
      funcion la cual permite validar la existencia de archivos localmente para la correcta funcionalidad del login_python3
    '''
    #valida la existencia de los archivos nesesarios para el correcto funcionamiento del login 
-   system("ls -a ~/login_python3/ | grep . | grep -v .hash_uninstall.py |  grep -v .git | grep -v LICENSE | grep -v README.md | grep -v dependencias.sh | grep -v hash_pass.py | grep -v login.py | grep -v motd |  grep -v  motd1 | grep -v uninstall.sh | grep -v .lista_local.txt > ~/login_python3/.lista_local.txt")
+   system("ls -a ~/login_python3/ | grep .txt | grep -v .lista_local.txt > ~/login_python3/.lista_local.txt")
    rute_complete_list="/data/data/com.termux/files/home/login_python3/.lista_local.txt"
    with open(rute_complete_list,'r',encoding="utf8") as file_list:
       list_local=file_list.readlines()
