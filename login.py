@@ -20,7 +20,9 @@ f = sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner = False
 signal_counter = 0
 MAX_SIGNAL_ATTEMPTS = 1
-figlet = ["big.flf","banner.flf","digital.flf","small.flf","slant.flf","shadow.flf","smscript.flf","smslant.flf","block.flf","bubble.flf"]
+figlet = ["big.flf","banner.flf","digital.flf",
+"small.flf","slant.flf","shadow.flf","smscript.flf",
+"smslant.flf","block.flf","bubble.flf"]
 
 
 def exit_console():
