@@ -4,7 +4,7 @@
 
 
 from hashlib import md5,sha1,sha224,sha384,sha256,sha512
-from os import system
+from os import system, path
 from signal import signal, SIGINT, SIGTSTP, SIGQUIT
 from time import sleep
 from getpass import getpass
@@ -37,10 +37,13 @@ def banner():
     '''
      funcion la cual me permite agregar un banner en bash con figlet y neofetch y tambien verificar si es valido
     '''
-    rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
-    with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
-       banner_file_read=banner_file_config.read().strip()
-    
+    if path.isfile("/data/data/com.termux/files/home/login_python3/.figlet.sh"):
+     rute_banner_read="/data/data/com.termux/files/home/login_python3/.banner.txt"
+     with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
+        banner_file_read=banner_file_config.read().strip()
+    else:
+       print("No encontrado el scriptbash \".figlet.sh\"")
+       exit(1)
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in figlet:
        global validator_correct_execute_banner
@@ -136,7 +139,7 @@ def main():
              if interation == 9:
                 exit_console()
     except FileNotFoundError as e:
-       print(f"file does not exist => {e}")
+       print(f"Archivo inexistente! => {e}")
        
 
 if __name__ == "__main__":
