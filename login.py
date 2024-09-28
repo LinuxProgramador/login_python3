@@ -70,8 +70,6 @@ def signal_esc(sig,frame):
    if signal_counter >= MAX_SIGNAL_ATTEMPTS:
         print("Demasiados intentos de señales. Saliendo del programa.")
         exit_console()
-   else:
-        main()
 
 
 def password_local():
