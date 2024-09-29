@@ -117,12 +117,12 @@ def main():
     try:
       signal(SIGINT, signal_esc)
       signal(SIGTSTP, signal_esc)
+      rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
       counter=10
       for interation in range(10):
         counter -= 1
         system("clear")
         banner()
-        rute_complete_hash_select="/data/data/com.termux/files/home/login_python3/.hash_selection.txt"
         with open(rute_complete_hash_select,'r',encoding="utf8") as file_read_hash_select:
           hash_select_validator=file_read_hash_select.read()
         validator_hash(hash_select_validator)
