@@ -44,7 +44,7 @@ def banner():
      with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
         banner_file_read=banner_file_config.read().strip()
     else:
-       print("No encontrado el bashscript \".figlet.sh\"!")
+       print("Archivo no existente => \".figlet.sh\"!")
        sleep(3)
        exit_console()
        
@@ -144,7 +144,7 @@ def main():
                 exit_console()
     except FileNotFoundError as e:
        print(f"Archivo inexistente! => {e}")
-       sleep(3)
+       sleep(4)
        system("clear")
        print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
        sleep(3)
