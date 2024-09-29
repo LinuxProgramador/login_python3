@@ -18,8 +18,6 @@ d = sha512("sha256".encode('utf8')).hexdigest()
 e = sha512("sha384".encode('utf8')).hexdigest()
 f = sha512("sha512".encode('utf8')).hexdigest()
 validator_correct_execute_banner = False
-signal_counter = 0
-MAX_SIGNAL_ATTEMPTS = 1
 figlet = ["big.flf","banner.flf","digital.flf",
 "small.flf","slant.flf","shadow.flf","smscript.flf",
 "smslant.flf","block.flf","bubble.flf"]
@@ -72,11 +70,8 @@ def signal_esc(sig,frame):
    '''
    print("\nAcesso no consedido! ")
    sleep(1)
-   global signal_counter
-   signal_counter += 1
-   if signal_counter >= MAX_SIGNAL_ATTEMPTS:
-        print("Demasiados intentos de señales. Saliendo del programa.")
-        exit_console()
+   print("Saliendo del programa.")
+   exit_console()
 
 
 def password_local():
