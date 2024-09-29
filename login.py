@@ -45,7 +45,9 @@ def banner():
         banner_file_read=banner_file_config.read().strip()
     else:
        print("No encontrado el scriptbash \".figlet.sh\"!")
-       exit(1)
+       sleep(3)
+       exit_console()
+       
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in figlet:
        global validator_correct_execute_banner
@@ -142,7 +144,8 @@ def main():
                 exit_console()
     except FileNotFoundError as e:
        print(f"Archivo inexistente! => {e}")
-       
+       sleep(3)
+       exit_console()
 
 if __name__ == "__main__":
     try:
