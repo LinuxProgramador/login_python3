@@ -145,6 +145,9 @@ def main():
     except FileNotFoundError as e:
        print(f"Archivo inexistente! => {e}")
        sleep(3)
+       system("clear")
+       print("NOTA:¡Ejecute primero el archivo dependencias.sh!")
+       sleep(3)
        exit_console()
 
 if __name__ == "__main__":
