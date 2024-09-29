@@ -42,7 +42,7 @@ def banner():
      with open(rute_banner_read,'r',encoding="utf8") as banner_file_config:
         banner_file_read=banner_file_config.read().strip()
     else:
-       print("Archivo no existente => \".figlet.sh\"")
+       print("Archivo no existente => \".figlet.sh\"!")
        sleep(3)
        exit_console()
        
