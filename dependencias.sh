@@ -24,8 +24,8 @@ function input_dates_user {
    echo -e "\033[1;35m --------------- "
    read -p "Elige un banner para tu login: " user_banner
    echo -e "\033[1;37m"
-   echo "listo ya esta todo configurado"
-   echo "ejecuta python3 login.py para utilzar el login"
+   echo "Listo ya esta todo configurado"
+   echo "Ejecuta python3 login.py para utilzar el login"
    sleep 3
    echo $user_banner > ~/login_python3/.banner.txt
    echo $user_name | base64  > ~/login_python3/.usuario.txt
