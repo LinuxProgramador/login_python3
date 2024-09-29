@@ -45,7 +45,7 @@ function main {
     echo $(clear)
    fi
    echo -e "\033[1;35m -------------------------------------------------------"
-   echo -e "\033[1;35m| Hola por favor digite su contrasena y hash a utilizar |"
+   echo -e "\033[1;35m| Hola por favor digite su contraseña y hash a utilizar |"
    echo -e "\033[1;35m ------------------------------------------------------- "
    sleep 3
    echo $(clear)
