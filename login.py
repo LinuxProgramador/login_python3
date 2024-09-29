@@ -5,7 +5,7 @@
 
 from hashlib import md5,sha1,sha224,sha384,sha256,sha512
 from os import system, path
-from signal import signal, SIGINT, SIGTSTP, SIGQUIT
+from signal import signal, SIGINT, SIGTSTP
 from time import sleep
 from getpass import getpass
 from sys import exit
@@ -122,7 +122,6 @@ def main():
     try:
       signal(SIGINT, signal_esc)
       signal(SIGTSTP, signal_esc)
-      signal(SIGQUIT, signal_esc)
       counter=10
       for interation in range(10):
         counter -= 1
