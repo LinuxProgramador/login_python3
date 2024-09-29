@@ -32,18 +32,18 @@ function uninstall_login_termux {
 
 function main {
  trap "echo $(clear) && echo 'Bye' && exit" 2
- read -p "desea eliminar login termux (si/no): " delete_login_termux
+ read -p "Desea eliminar login termux (si/no): " delete_login_termux
  if [ "$delete_login_termux" = 'si' ] ; then
        secure_token=$(python3 ~/login_python3/.hash_uninstall.py)
        secure_token_input=$(cat ~/login_python3/.password_hash_uninstall.txt | cut -f1)
        if [ "$secure_token" = "$secure_token_input"  ] ; then
                uninstall_login_termux
        else
-             echo "contraseña invalida"
+             echo "Contraseña invalida"
              exit
        fi
  else
-      echo "operacion cancelada"
+      echo "Operacion cancelada"
  fi
 }
 main
