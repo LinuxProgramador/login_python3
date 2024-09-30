@@ -45,7 +45,7 @@ def banner():
        print("Archivo no existente => \".figlet.sh\"!")
        sleep(3)
        exit_console()
-       
+       return
     #permite verificar si el banner establecido por el usuario es valido con la lista de banners disponibles
     if banner_file_read in figlet:
        global validator_correct_execute_banner
