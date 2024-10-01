@@ -70,7 +70,6 @@ def signal_esc(sig,frame):
    '''
    print("\nAcesso no consedido! ")
    sleep(1)
-   print("Saliendo del programa.")
    exit_console()
 
 
