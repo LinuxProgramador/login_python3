@@ -151,6 +151,6 @@ if __name__ == "__main__":
 
 __name__="Login Termux"
 __version__="1.0"
-__author__="whitehack"
+__author__="JP Rojas"
 __status__="Finish"
 __license__="GPL"
